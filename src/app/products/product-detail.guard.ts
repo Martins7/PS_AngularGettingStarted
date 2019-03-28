@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class ProductDetailGuard implements CanActivate {
 
-  constructor(private router: Router){}
+  constructor(private router: Router) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       const id = +next.url[1].path;
-      if (isNaN(id)|| id<1){
-        alert("Invalid product Id") ;
+      if (isNaN(id) || id < 1 ) {
+        alert('Invalid product Id') ;
         this.router.navigate(['/products']);
         return false;
       }
